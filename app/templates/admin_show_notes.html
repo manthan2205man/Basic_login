@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+NOTES:
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 col-sm-4">
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+
+      <th scope="col">notes</th>
+              <th scope="col">student</th>
+
+
+        </tr>
+  </thead>
+  <tbody>
+{% for i in notes %}
+
+ <tr>
+
+      <td>{{ i.textnotes }}</td>
+      <td>{{ i.student.first_name }}</td>
+
+      </td>
+     <td>
+          <a class="btn btn-danger" href="{% url 'admin_delete_notes' i.id %}">Delete</a>
+      </td>
+    </tr>
+  {% endfor %}
+    </tbody>
+</table>
+
+         </div>
+    </div>
+</div>
+</body>
+</html>
+{% endblock %}
